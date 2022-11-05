@@ -11,7 +11,6 @@ import ru.popov.loanrestapi.domain.Person;
 import ru.popov.loanrestapi.repositories.PersonRepository;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)

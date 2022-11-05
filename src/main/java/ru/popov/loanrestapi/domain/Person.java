@@ -81,7 +81,7 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(loans, person.loans);
+        return Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(loans, person.loans);
     }
 
     @Override

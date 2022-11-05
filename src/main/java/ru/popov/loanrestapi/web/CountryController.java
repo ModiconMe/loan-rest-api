@@ -33,7 +33,7 @@ public class CountryController {
                                                  BindingResult bindingResult
     ) {
         Country country = convertCountryDTOToCountry(countryDTO);
-        if(bindingResult.hasErrors())
+        if (bindingResult.hasErrors())
             ErrorsUtil.returnErrorsToClient(bindingResult);
 
         countryService.addCountry(country);

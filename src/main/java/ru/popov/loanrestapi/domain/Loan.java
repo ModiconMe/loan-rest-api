@@ -96,7 +96,7 @@ public class Loan {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Loan loan = (Loan) o;
-        return id == loan.id && approved == loan.approved && Objects.equals(amount, loan.amount) && Objects.equals(person, loan.person) && Objects.equals(country, loan.country);
+        return approved == loan.approved && Objects.equals(amount, loan.amount) && Objects.equals(person, loan.person) && Objects.equals(country, loan.country);
     }
 
     @Override
