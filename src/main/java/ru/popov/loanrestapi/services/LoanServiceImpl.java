@@ -38,7 +38,12 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public List<Loan> getAll() {
-        return loanRepository.findAll();
+        List<Loan> loans = loanRepository.findAll();
+
+        if (loans.isEmpty())
+            throw new LoanNotFoundException("We have no loans atm");
+
+        return loans;
     }
 
     @Override

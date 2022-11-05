@@ -1,5 +1,7 @@
 package ru.popov.loanrestapi.domain;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -25,7 +27,7 @@ public class Person {
     @Size(min = 2, max = 50, message = "Surname should be between 3 and 30 characters")
     private String surname;
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
     private List<Loan> loans;
 
     public Person() {
@@ -35,6 +37,13 @@ public class Person {
         this.name = name;
         this.surname = surname;
     }
+
+    public Person(String name, String surname, List<Loan> loans) {
+        this.name = name;
+        this.surname = surname;
+        this.loans = loans;
+    }
+
     public int getId() {
         return id;
     }
@@ -78,5 +87,15 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, loans);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", loans=" + loans +
+                '}';
     }
 }

@@ -11,6 +11,7 @@ import ru.popov.loanrestapi.domain.Blacklist;
 import ru.popov.loanrestapi.domain.Person;
 import ru.popov.loanrestapi.repositories.BlacklistRepository;
 import ru.popov.loanrestapi.repositories.PersonRepository;
+import ru.popov.loanrestapi.util.exceptions.PersonIsInBlacklistException;
 import ru.popov.loanrestapi.util.exceptions.PersonNotFoundException;
 
 import java.util.Optional;
@@ -65,6 +66,24 @@ class BlacklistServiceImplTest {
         assertThatThrownBy(() -> blacklistService.addPersonToBlackList(person))
                 .isInstanceOf(PersonNotFoundException.class)
                 .hasMessageContaining("person with name: " + person.getName() + " does not exist");
+
+        verify(blacklistRepository, never()).save(blacklist);
+    }
+
+    @Test
+    void itShouldNotAddPersonToBlackListAndThrowPersonIsIbBlacklistException() {
+        // given
+        String name = "Dmitry";
+        Person person = new Person(name, "Popov");
+        Blacklist blacklist = new Blacklist(person);
+        given(personRepository.findByName(name)).willReturn(Optional.of(person));
+        given(blacklistRepository.findByPersonId(person.getId())).willReturn(Optional.of(blacklist));
+
+        // when
+        // then
+        assertThatThrownBy(() -> blacklistService.addPersonToBlackList(person))
+                .isInstanceOf(PersonIsInBlacklistException.class)
+                .hasMessageContaining("person with name: " + person.getName() + " is already in blacklist");
 
         verify(blacklistRepository, never()).save(blacklist);
     }

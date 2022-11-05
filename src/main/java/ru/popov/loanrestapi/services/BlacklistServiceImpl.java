@@ -7,6 +7,7 @@ import ru.popov.loanrestapi.domain.Blacklist;
 import ru.popov.loanrestapi.domain.Person;
 import ru.popov.loanrestapi.repositories.BlacklistRepository;
 import ru.popov.loanrestapi.repositories.PersonRepository;
+import ru.popov.loanrestapi.util.exceptions.PersonIsInBlacklistException;
 import ru.popov.loanrestapi.util.exceptions.PersonNotFoundException;
 
 import java.util.Optional;
@@ -27,12 +28,16 @@ public class BlacklistServiceImpl implements BlacklistService {
     @Transactional
     public void addPersonToBlackList(Person person) throws PersonNotFoundException {
         Blacklist blacklist = new Blacklist();
-        Optional<Person> optionalPerson = personRepository.findByName(person.getName());
 
+        Optional<Person> optionalPerson = personRepository.findByName(person.getName());
         if (optionalPerson.isEmpty())
             throw new PersonNotFoundException("person with name: " + person.getName() + " does not exist");
-
         Person addedPerson = optionalPerson.get();
+
+        Optional<Blacklist> optionalBlacklist = blacklistRepository.findByPersonId(addedPerson.getId());
+        if (optionalBlacklist.isPresent())
+            throw new PersonIsInBlacklistException("person with name: " + addedPerson.getName() + " is already in blacklist");
+
         blacklist.setPerson(addedPerson);
         blacklistRepository.save(blacklist);
     }

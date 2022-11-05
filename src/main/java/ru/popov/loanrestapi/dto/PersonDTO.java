@@ -1,7 +1,11 @@
 package ru.popov.loanrestapi.dto;
 
+import ru.popov.loanrestapi.domain.Loan;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Objects;
 
 public class PersonDTO {
 
@@ -36,5 +40,18 @@ public class PersonDTO {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonDTO personDTO = (PersonDTO) o;
+        return Objects.equals(name, personDTO.name) && Objects.equals(surname, personDTO.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname);
     }
 }
