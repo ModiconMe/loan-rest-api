@@ -6,6 +6,9 @@ import ru.popov.loanrestapi.domain.Country;
 
 import java.util.Optional;
 
+/**
+ * Добавлен метод для поиска страны по названию
+ */
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Integer> {
     Optional<Country> findByName(String name);

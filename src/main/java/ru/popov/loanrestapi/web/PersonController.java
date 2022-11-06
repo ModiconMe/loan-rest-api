@@ -15,6 +15,9 @@ import ru.popov.loanrestapi.util.exceptions.LoanNotFoundException;
 
 import javax.validation.Valid;
 
+/**
+ * Добавлен функционал добавления и удаления человека из БД
+ */
 @RestController
 @RequestMapping("/people")
 public class PersonController {

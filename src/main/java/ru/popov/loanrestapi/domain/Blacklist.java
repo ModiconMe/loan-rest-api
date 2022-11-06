@@ -3,6 +3,9 @@ package ru.popov.loanrestapi.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * Этот класс представляет собой черный лист людей, которым запрещено выдавать займы
+ */
 @Entity
 @Table(name = "blacklist")
 public class Blacklist {

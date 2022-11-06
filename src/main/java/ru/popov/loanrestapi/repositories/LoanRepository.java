@@ -6,6 +6,10 @@ import ru.popov.loanrestapi.domain.Loan;
 
 import java.util.List;
 
+/**
+ * Добавлен метод для поиска всех одобренных займов
+ * Добавлени метод для поиска всех одобренный займов у человека
+ */
 @Repository
 public interface LoanRepository  extends JpaRepository<Loan, Integer> {
 

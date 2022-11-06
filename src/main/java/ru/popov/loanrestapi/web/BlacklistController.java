@@ -16,6 +16,9 @@ import ru.popov.loanrestapi.util.exceptions.PersonNotFoundException;
 
 import javax.validation.Valid;
 
+/**
+ * Реализован функционал добавления и удаления человека их черного списка
+ */
 @RestController
 @RequestMapping("/blacklist")
 public class BlacklistController {

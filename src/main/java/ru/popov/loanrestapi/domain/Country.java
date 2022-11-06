@@ -5,6 +5,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+/**
+ * Этот класс представляет собой страну их которой приходит запрос на займ
+ */
 @Entity
 @Table(name = "country")
 public class Country {

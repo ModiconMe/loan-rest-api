@@ -6,6 +6,9 @@ import ru.popov.loanrestapi.domain.Person;
 
 import java.util.Optional;
 
+/**
+ * Добавлен метод для поска человека по имени
+ */
 @Repository
 public interface PersonRepository  extends JpaRepository<Person, Integer> {
 

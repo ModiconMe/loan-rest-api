@@ -15,6 +15,9 @@ import ru.popov.loanrestapi.util.exceptions.LoanNotFoundException;
 
 import javax.validation.Valid;
 
+/**
+ * Реализован функционал добавления новой страны
+ */
 @RestController
 @RequestMapping("/countries")
 public class CountryController {

@@ -9,6 +9,9 @@ import ru.popov.loanrestapi.util.exceptions.*;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+/**
+ * Обработчик исключений, которые выбрасываются в контроллере
+ */
 @ControllerAdvice
 public class ApiExceptionHandler {
 

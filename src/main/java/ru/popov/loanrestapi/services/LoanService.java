@@ -7,6 +7,10 @@ import ru.popov.loanrestapi.util.exceptions.PersonNotFoundException;
 
 import java.util.List;
 
+/**
+ * Добавлен функционал: добавления нового займа (требуется существующий человек, и страна в БД), получения всех займов,
+ * получения всех одобренных займов, получение всех одобренных займов у человека, одобрение займа по его id
+ */
 public interface LoanService {
 
     Loan addLoan(Loan loan) throws PersonNotFoundException, CountryNotFoundException;

@@ -14,7 +14,9 @@ import ru.popov.loanrestapi.util.exceptions.RequestLimitException;
 import javax.servlet.*;
 import java.io.IOException;
 import java.util.Locale;
-
+/**
+ * Добавлен функционал ограничения кол-ва запросов клиентов из одной страны
+ */
 @Component
 public class LimitFilter implements Filter {
 

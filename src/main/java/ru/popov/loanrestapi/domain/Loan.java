@@ -5,6 +5,9 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Этот класс представляет собой модель для займа, ссылается на человека и страну
+ */
 @Entity
 @Table(name = "loan")
 public class Loan {

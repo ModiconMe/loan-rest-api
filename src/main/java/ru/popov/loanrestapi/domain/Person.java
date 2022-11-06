@@ -8,6 +8,9 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Этот класс представляет собой модель человека, берущего займ
+ */
 @Entity
 @Table(name = "person")
 public class Person {
