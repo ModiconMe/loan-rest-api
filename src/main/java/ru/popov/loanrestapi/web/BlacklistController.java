@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.popov.loanrestapi.domain.Person;
 import ru.popov.loanrestapi.dto.PersonDTO;
 import ru.popov.loanrestapi.services.BlacklistService;
+import ru.popov.loanrestapi.services.BlacklistServiceImpl;
 import ru.popov.loanrestapi.util.ErrorResponse;
 import ru.popov.loanrestapi.util.ErrorsUtil;
 import ru.popov.loanrestapi.util.exceptions.PersonNotFoundException;
@@ -23,7 +24,7 @@ public class BlacklistController {
     private final ModelMapper modelMapper;
 
     @Autowired
-    public BlacklistController(BlacklistService blacklistService, ModelMapper modelMapper) {
+    public BlacklistController(BlacklistServiceImpl blacklistService, ModelMapper modelMapper) {
         this.blacklistService = blacklistService;
         this.modelMapper = modelMapper;
     }
@@ -50,15 +51,6 @@ public class BlacklistController {
 
         blacklistService.removePersonFromBlackList(person);
         return ResponseEntity.ok(HttpStatus.OK);
-    }
-
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(PersonNotFoundException e) {
-        ErrorResponse loanErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
     }
 
     private PersonDTO convertPersonToPersonDTO(Person person) {

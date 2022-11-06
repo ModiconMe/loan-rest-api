@@ -25,9 +25,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@TestPropertySource(
-        locations = "classpath:application-it.properties"
-)
+@TestPropertySource(locations = "classpath:application-it.properties")
 @AutoConfigureMockMvc
 @Transactional
 public class BlacklistControllerIIntTest {

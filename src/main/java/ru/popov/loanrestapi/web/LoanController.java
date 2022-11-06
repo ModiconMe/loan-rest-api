@@ -72,32 +72,32 @@ public class LoanController {
         return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
     }
 
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(PersonIsInBlacklistException e) {
-        ErrorResponse loanErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
-
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(CountryNotFoundException e) {
-        ErrorResponse loanErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
-
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
-        ErrorResponse loanErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
+//    @ExceptionHandler
+//    private ResponseEntity<ErrorResponse> handleException(PersonIsInBlacklistException e) {
+//        ErrorResponse loanErrorResponse = new ErrorResponse(
+//                e.getMessage(),
+//                System.currentTimeMillis()
+//        );
+//        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
+//    }
+//
+//    @ExceptionHandler
+//    private ResponseEntity<ErrorResponse> handleException(CountryNotFoundException e) {
+//        ErrorResponse loanErrorResponse = new ErrorResponse(
+//                e.getMessage(),
+//                System.currentTimeMillis()
+//        );
+//        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
+//    }
+//
+//    @ExceptionHandler
+//    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
+//        ErrorResponse loanErrorResponse = new ErrorResponse(
+//                e.getMessage(),
+//                System.currentTimeMillis()
+//        );
+//        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
+//    }
 
     private LoanDTO convertLoanToLoanDTO(Loan loan) {
         return modelMapper.map(loan, LoanDTO.class);

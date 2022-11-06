@@ -38,7 +38,7 @@ class PersonControllerTest {
     @Test
     void canAddPerson() throws Exception {
         // given
-        Person person = new Person("IT_name", "IT_surname", Collections.emptyList());
+        Person person = new Person("IT_name", "IT_surname");
 
         // when
         ResultActions resultActions = mockMvc

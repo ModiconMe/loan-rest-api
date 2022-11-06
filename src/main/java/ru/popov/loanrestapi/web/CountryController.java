@@ -40,14 +40,14 @@ public class CountryController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
-        ErrorResponse personErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(personErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
+//    @ExceptionHandler
+//    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
+//        ErrorResponse personErrorResponse = new ErrorResponse(
+//                e.getMessage(),
+//                System.currentTimeMillis()
+//        );
+//        return new ResponseEntity<>(personErrorResponse, HttpStatus.BAD_REQUEST); // 400
+//    }
 
     private CountryDTO convertCountryToCountryDTO(Country country) {
         return modelMapper.map(country, CountryDTO.class);

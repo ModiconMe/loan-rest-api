@@ -36,13 +36,4 @@ public class LimitFilter implements Filter {
             throw new RequestLimitException("request limit from country " + locale.getCountry() + " is over");
         }
     }
-
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(RequestLimitException e) {
-        ErrorResponse loanErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(loanErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
 }

@@ -26,7 +26,7 @@ public class BlacklistServiceImpl implements BlacklistService {
 
     @Override
     @Transactional
-    public void addPersonToBlackList(Person person) throws PersonNotFoundException {
+    public void addPersonToBlackList(Person person) throws PersonNotFoundException, PersonIsInBlacklistException {
         Blacklist blacklist = new Blacklist();
 
         Optional<Person> optionalPerson = personRepository.findByName(person.getName());

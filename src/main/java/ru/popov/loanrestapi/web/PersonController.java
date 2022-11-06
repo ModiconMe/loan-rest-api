@@ -40,14 +40,14 @@ public class PersonController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @ExceptionHandler
-    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
-        ErrorResponse personErrorResponse = new ErrorResponse(
-                e.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(personErrorResponse, HttpStatus.BAD_REQUEST); // 400
-    }
+//    @ExceptionHandler
+//    private ResponseEntity<ErrorResponse> handleException(LoanNotFoundException e) {
+//        ErrorResponse personErrorResponse = new ErrorResponse(
+//                e.getMessage(),
+//                System.currentTimeMillis()
+//        );
+//        return new ResponseEntity<>(personErrorResponse, HttpStatus.BAD_REQUEST); // 400
+//    }
 
     private PersonDTO convertPersonToPersonDTO(Person person) {
         return modelMapper.map(person, PersonDTO.class);
