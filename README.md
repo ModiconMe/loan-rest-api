@@ -1,3 +1,9 @@
+# Technology stack
+- spring boot (web, jpa+hibernate, test, validation)
+- postgresql
+- modelmapper
+- junit, mockito, assertJ, h2database
+
 ### Problem definition
 Create a tiny RESTful web service with the following functionality:
 

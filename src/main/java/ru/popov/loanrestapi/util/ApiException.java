@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import java.time.ZonedDateTime;
 
 /**
- * Класс который служит для ответа клиенту в случает ошибки
+ * Класс, который служит для ответа клиенту, в случае ошибки
  */
 public class ApiException {
     private final String message;
